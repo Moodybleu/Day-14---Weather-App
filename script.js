@@ -35,7 +35,13 @@ function displayData (response) {
         date.innerText = dateFunction(today);
 
         const temp = document.querySelector(".temp");
-        temp.innerHTML = `Temp: ${Math.round(response.main.temp)}`;
+        temp.innerHTML = `Temp: ${Math.round(response.main.temp)} <span>˚C</span>`;
+
+        const weather = document.querySelector(".weather");
+        weather.innerText = `Weather: ${response.weather[0].main}`;
+
+        const tempRange = document.querySelector(".temp-range");
+        tempRange.innerText = `Temp Range: ${Math.round(response.main.temp_min)}˚C / ${Math.round(response.main.temp_max)}˚C`;
     }
 }
 
